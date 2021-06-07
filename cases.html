@@ -1,0 +1,541 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cases | LawExpert</title>
+
+    <!-- BOOTSTRAP -->
+    <link href="css/bootstrap-4.0.0.css" rel="stylesheet" type="text/css">
+
+    <!-- STYLE -->
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- MATERIAL ICONS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- SWEETALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+
+    <!-- CUSTOM STYLE -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            overflow: hidden;
+        }
+        
+        body .wrapper {
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 900px;
+            height: 100vh;
+        }
+        
+        body .wrapper .gallery-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: right;
+            flex-wrap: wrap;
+            width: 500px;
+        }
+        
+        body .wrapper .gallery-wrapper .item {
+            margin: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            height: 150px;
+            box-shadow: 10px 10px 1px 0 rgba(0, 0, 0, 0.15);
+        }
+        
+        body .wrapper .gallery-wrapper .item img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        body a:hover {
+            transition: 500ms all;
+        }
+        
+        .short-animate {
+            transition: 0.5s ease-in-out;
+        }
+        
+        .long-animate {
+            transition: 0.5s 0.5s ease-in-out;
+        }
+        
+        .lightbox {
+            position: fixed;
+            top: -100%;
+            bottom: 100%;
+            left: 0;
+            right: 0;
+            background: #2f3332;
+            z-index: 501;
+            opacity: 0;
+        }
+        
+        .lightbox img {
+            position: absolute;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            max-width: 0%;
+            max-height: 0%;
+        }
+        
+        .lightbox:target {
+            top: 0%;
+            bottom: 0%;
+            opacity: 1;
+        }
+        
+        .lightbox:target img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .lightbox:target~#close-wrapper {
+            top: 0;
+        }
+        
+        .lightbox:target~#close-wrapper #close-lightbox:after {
+            width: 50px;
+        }
+        
+        .lightbox:target~#close-wrapper #close-lightbox:before {
+            height: 50px;
+        }
+        
+        .lightbox:target~#next-wrapper {
+            right: 0;
+        }
+        
+        .lightbox:target~#prev-wrapper {
+            left: 0;
+        }
+        
+        #close-wrapper {
+            position: fixed;
+            top: -70px;
+            right: 0;
+            height: 70px;
+            width: 70px;
+            z-index: 502;
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        #close-wrapper #close-lightbox {
+            display: block;
+            position: absolute;
+            overflow: hidden;
+            height: 50px;
+            width: 50px;
+            right: 10px;
+            top: 70px;
+            transform: rotate(45deg);
+        }
+        
+        #close-wrapper #close-lightbox:before,
+        #close-wrapper #close-lightbox:after {
+            content: "";
+            display: block;
+            position: absolute;
+            background: #dfecee;
+            border-radius: 2px;
+        }
+        
+        #close-wrapper #close-lightbox:before {
+            height: 0;
+            width: 3px;
+            left: 24px;
+            top: 0;
+            transition: 0.5s 1s ease-in-out;
+        }
+        
+        #close-wrapper #close-lightbox:after {
+            width: 0;
+            height: 3px;
+            top: 24px;
+            left: 0;
+            transition: 0.5s 1.5s ease-in-out;
+        }
+        
+        #next-wrapper {
+            position: fixed;
+            top: 40%;
+            right: -70px;
+            height: 70px;
+            width: 70px;
+            z-index: 502;
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        #next-wrapper #next-lightbox {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            height: 50px;
+            width: 50px;
+        }
+        
+        #next-wrapper #next-lightbox:before,
+        #next-wrapper #next-lightbox:after {
+            border-right: 3px solid #dfecee;
+            content: "";
+            display: block;
+            height: 16px;
+            position: absolute;
+            background: #dfecee;
+            border-radius: 2px;
+            transform: rotate(-135deg);
+            left: 45%;
+            top: 45%;
+            width: 0;
+        }
+        
+        #next-wrapper #next-lightbox:after {
+            margin-top: -10px;
+            transform: rotate(-45deg);
+        }
+        
+        #prev-wrapper {
+            position: fixed;
+            top: 40%;
+            left: -70px;
+            height: 70px;
+            width: 70px;
+            z-index: 502;
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        #prev-wrapper #prev-lightbox {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            height: 50px;
+            width: 50px;
+        }
+        
+        #prev-wrapper #prev-lightbox:before,
+        #prev-wrapper #prev-lightbox:after {
+            border-right: 3px solid #dfecee;
+            content: "";
+            display: block;
+            height: 16px;
+            position: absolute;
+            background: #dfecee;
+            border-radius: 2px;
+            transform: rotate(135deg);
+            left: 45%;
+            top: 45%;
+            width: 0;
+        }
+        
+        #prev-wrapper #prev-lightbox:after {
+            margin-top: -10px;
+            transform: rotate(45deg);
+        }
+    </style>
+
+</head>
+
+<body style="padding-top: 70px; font-family: 'Montserrat', sans-serif">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+            <ul class="navbar-nav ml-auto">
+                <center>
+                    <li class="nav-item"> <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a> </li>
+                </center>
+                <center>
+                    <li class="nav-item"> <a class="nav-link" href="about-us.html">About us</a> </li>
+                </center>
+                <center>
+                    <li class="nav-item"> <a class="nav-link" href="services.html">Services</a> </li>
+                </center>
+                <center>
+                    <li class="nav-item active"> <a class="nav-link" href="cases.html">Cases</a> </li>
+                </center>
+                <center>
+                    <li class="nav-item"> <a class="nav-link" href="blog.html">Blog</a> </li>
+                </center>
+                <center>
+                    <li class="nav-item"> <a class="nav-link" href="contact-us.html">Contact</a> </li>
+                </center>
+                <center><a href="appointment.html"><button type="button" class="btn btn-outline-danger">Appointment</button></a></center>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="about-us" id="ABOUT">
+        <h1 class="text-white container" style="font-family: Times New Roman; font-size: 60px;"><em><strong>Cases</strong></em></h1>
+    </section>
+
+    <div class="container">
+
+        <div class="card-group">
+
+            <div class="card col-md-4 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body">
+                    <a href="#image1" class="item">
+                        <img src="images/cases/gallery-1-1200x800_original.jpg" style="height: 200px;" alt="Card image cap" class="img-fluid">
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="card col-md-4 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body">
+                    <a href="#image2" class="item">
+                        <img src="images/cases/gallery-2-1200x908_original.jpg" alt="Card image cap" class="img-fluid" style="height: 200px;">
+                    </a>
+                </div>
+            </div>
+
+            <div class="card col-md-4 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body">
+                    <a href="#image3" class="item">
+                        <img src="images/cases/gallery-3-1200x900_original.jpg" alt="Card image cap" class="img-fluid" style="height: 200px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-group">
+            <div class="card col-md-4 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body">
+                    <a href="#image4" class="item">
+                        <img src="images/cases/gallery-4-1200x935_original.jpg" alt="Card image cap" class="img-fluid" style="height: 200px;">
+                    </a>
+                </div>
+            </div>
+
+            <div class="card col-md-4 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body">
+                    <a href="#image5" class="item">
+                        <img src="images/cases/gallery-5-1200x800_original.jpg" alt="Card image cap" class="img-fluid" style="height: 200px;">
+                    </a>
+                </div>
+            </div>
+
+            <div class="card col-md-4 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body">
+                    <a href="#image6" class="item">
+                        <img src="images/cases/gallery-6-1200x798_original.jpg" alt="Card image cap" class="img-fluid" style="height: 200px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-group">
+            <div class="card col-md-4 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body">
+                    <a href="#image7" class="item">
+                        <img src="images/cases/gallery-7-1200x815_original.jpg" alt="Card image cap" class="img-fluid" style="height: 200px;">
+                    </a>
+                </div>
+            </div>
+
+            <div class="card col-md-4 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body">
+                    <a href="#image8" class="item">
+                        <img src="images/cases/gallery-8-1200x797_original.jpg" alt="Card image cap" class="img-fluid" style="height: 200px;">
+                    </a>
+                </div>
+            </div>
+
+            <div class="card col-md-4 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body">
+                    <a href="#image9" class="item">
+                        <img src="images/cases/gallery-9-1200x800_original.jpg" alt="Card image cap" class="img-fluid" style="height: 200px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="gallery-wrapper">
+        <!-- Image 1 -->
+        <div class="lightbox short-animate" id="image1">
+            <img src="images/cases/gallery-1-1200x800_original.jpg" alt="Image 1" class="long-animate" />
+        </div>
+        <!-- Image 2 -->
+        <div class="lightbox short-animate" id="image2">
+            <img src="images/cases/gallery-2-1200x908_original.jpg" alt="Image 2" class="long-animate" />
+        </div>
+        <!-- Image 3 -->
+        <div class="lightbox short-animate" id="image3">
+            <img src="images/cases/gallery-3-1200x900_original.jpg" alt="Image 3" class="long-animate" />
+        </div>
+        <!-- Image 4 -->
+        <div class="lightbox short-animate" id="image4">
+            <img src="images/cases/gallery-4-1200x935_original.jpg" alt="Image 4" class="long-animate" />
+        </div>
+        <!-- Image 5 -->
+        <div class="lightbox short-animate" id="image5">
+            <img src="images/cases/gallery-5-1200x800_original.jpg" alt="Image 5" class="long-animate" />
+        </div>
+        <!-- Image 6 -->
+        <div class="lightbox short-animate" id="image6">
+            <img src="images/cases/gallery-6-1200x798_original.jpg" alt="Image 6" class="long-animate" />
+        </div>
+        <!-- Image 7 -->
+        <div class="lightbox short-animate" id="image7">
+            <img src="images/cases/gallery-7-1200x815_original.jpg" alt="Image 7" class="long-animate" />
+        </div>
+        <!-- Image 8 -->
+        <div class="lightbox short-animate" id="image8">
+            <img src="images/cases/gallery-8-1200x797_original.jpg" alt="Image 8" class="long-animate" />
+        </div>
+        <!-- Image 9 -->
+        <div class="lightbox short-animate" id="image9">
+            <img src="images/cases/gallery-9-1200x800_original.jpg" alt="Image 9" class="long-animate" />
+        </div>
+
+        <!-- Lightbox Controls -->
+        <div class="short-animate" id="close-wrapper">
+            <a href="#!" id="close-lightbox" class="long-animate"></a>
+        </div>
+
+        <div class="short-animate" id="next-wrapper">
+            <a href="#" id="next-lightbox" class="long-animate"></a>
+        </div>
+
+        <div class="short-animate" id="prev-wrapper">
+            <a href="#" id="prev-lightbox" class="long-animate"></a>
+        </div>
+
+        <footer>
+
+        </footer>
+
+    </div>
+    </div>
+    </div>
+
+    </div>
+
+    <!-- Site footer -->
+    <footer class="container-fluid site-footer bg-footer mx-auto text-center text-white" style="margin-top: 100px;">
+        <div class="container">
+            <img src="images/logo-white.png">
+            <a href="appointment.html">
+                <p>Free Consultation ></p>
+            </a>
+            <hr>
+        </div>
+        <div class="container">
+            <p class="text-center">Copyright &copy; 2020 All Rights Reserved by LawExpert. | Developed by Amar Garčević</a>
+            </p>
+            <center>
+                <div class="text-center">
+                    <ul class="social-icons">
+                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <a class="social-media-button-2" href="#"><i class="fa fa-envelope"></i></a>
+            </center>
+            </ul>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // This changes the lightbox image to the next or previous
+        // image by adding an event listener.
+        'use strict';
+
+        let link;
+        let imageCount = 9;
+        let regExDigit = /\d+/;
+
+        function imageLink() {
+            let regExImage = /#image\d+/;
+            let image = location.href;
+
+            link = regExImage.exec(image)[0];
+            link = regExDigit.exec(link)[0];
+        }
+
+        let next = document.getElementById('next-lightbox');
+        let prev = document.getElementById('prev-lightbox');
+
+        next.addEventListener('click', evt => {
+            evt.preventDefault();
+            imageLink();
+            let newLink = Number(link) + 1;
+            if (newLink > imageCount) newLink = 1;
+            location.href = location.href.replace(regExDigit, newLink);
+        });
+
+        prev.addEventListener('click', evt => {
+            evt.preventDefault();
+            imageLink();
+            let newLink = Number(link) - 1;
+            if (newLink < 1) newLink = imageCount;
+            location.href = location.href.replace(regExDigit, newLink);
+        });
+    </script>
+    <script>
+        AOS.init();
+    </script>
+
+    <!-- jQuery Plugin -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+
+    <!-- Preloader -->
+    <script type="text/javascript">
+        //<![CDATA[
+        $(window).on('load', function() { // makes sure the whole site is loaded 
+                $('#status').fadeOut(); // will first fade out the loading animation 
+                $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
+                $('body').delay(750).css({
+                    'overflow': 'visible'
+                });
+            })
+            //]]>
+    </script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.0.0.js"></script>
+</body>
+
+</html>

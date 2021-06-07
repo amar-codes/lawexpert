@@ -1,0 +1,263 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | LawExpert</title>
+
+    <!-- BOOTSTRAP -->
+    <link href="css/bootstrap-4.0.0.css" rel="stylesheet" type="text/css">
+
+    <!-- STYLE -->
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- MATERIAL ICONS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- SWEETALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+
+    <!-- CUSTOM STYLE -->
+    <style>
+        body {
+            overflow: hidden;
+        }
+        /* Preloader */
+        
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #fff;
+            /* change if the mask should have another color then white */
+            z-index: 99;
+            /* makes sure it stays on top */
+        }
+        
+        #status {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            /* centers the loading animation horizontally one the screen */
+            top: 50%;
+            /* centers the loading animation vertically one the screen */
+            background-image: url(https://thumbs.gfycat.com/PotableEmbarrassedFrenchbulldog-small.gif);
+            /* path to your loading animation */
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: -100px 0 0 -100px;
+            /* is width and height divided by two */
+        }
+    </style>
+</head>
+
+<body style="padding-top: 70px; font-family: 'Montserrat', sans-serif">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+            <ul class="navbar-nav ml-auto">
+                <center>
+                    <li class="nav-item"> <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a> </li>
+                </center>
+                <center>
+                    <li class="nav-item"> <a class="nav-link" href="about-us.html">About us</a> </li>
+                </center>
+                <center>
+                    <li class="nav-item active"> <a class="nav-link" href="services.html">Services</a> </li>
+                </center>
+                <center>
+                    <li class="nav-item"> <a class="nav-link" href="cases.html">Cases</a> </li>
+                </center>
+                <center>
+                    <li class="nav-item"> <a class="nav-link" href="blog.html">Blog</a> </li>
+                </center>
+                <center>
+                    <li class="nav-item"> <a class="nav-link" href="contact-us.html">Contact</a> </li>
+                </center>
+                <center><a href="appointment.html"><button type="button" class="btn btn-outline-danger">Appointment</button></a></center>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="about-us" id="ABOUT">
+        <h1 class="text-white container" style="font-family: Times New Roman; font-size: 60px;"><em><strong>Services</strong></em></h1>
+    </section>
+
+    <div class="container">
+        <div class="card-deck">
+
+            <div class="card col-md-6" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body">
+                    <img src="images/services-man.png" class="img-fluid">
+                </div>
+            </div>
+
+            <div class="card col-md-6" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px; padding-top: 30px;">
+                <div class="card-body">
+                    <h1 class="card-title" style="font-family: Times New Roman"><strong>You Can Trust Us</strong></h1>
+                    <p class="card-text">Every case is different. Past results are in no way intended to imply that a similar result can be obtained in a case. But past results do indicate a firm’s experience when it comes to serious catastrophic injury and wrongful death
+                        cases. Our attorneys represent clients in a variety of practice areas, including car accident, birth injury, brain injury, defective product, drug injury, motorcycle accident, nursing home abuse, personal injury, Social Security
+                        disability, spinal cord injury, traffic ticket, truck accident, and much more.</p>
+                    <a href="about-us.html"><button type="button" class="btn btn-outline-danger">Read more</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="our_services" class="our_services" data-aos="fade-right">
+        <center>
+            <h1 style="color: white; font-family: Times New Roman"><strong>Our Services</strong></h1>
+            <p class="text-white">Our practice has an extensive history of long-standing relationships with law firm clients built on integrity, first-rate service, timely delivery and relevant advice.</p>
+        </center>
+
+        <div class="card-group">
+
+            <div class="card col-md-4 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body">
+                    <i class="fa fa-comments-o" style="color: rgba(204, 168, 118); font-size: 40px"></i>
+                    <h3 class="card-title" style="color: white; font-family: Times New Roman"><strong>Advertising Law</strong></h3>
+                    <p class="card-text text-light">Advertising law is a broad, fast-evolving area of law that involves vetting claims about products and managing business practices.</p>
+                </div>
+            </div>
+
+            <div class="card col-md-4 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body">
+                    <i class="fa fa-globe" style="color: rgba(204, 168, 118); font-size: 40px"></i>
+                    <h3 class="card-title" style="color: white; font-family: Times New Roman"><strong>Oil & Gas Law</strong></h3>
+                    <p class="card-text text-light">Includes the exploration for, and the production, transportation and processing of, crude oil, natural gas and hydrocarbons.</p>
+                </div>
+            </div>
+
+            <div class="card col-md-4 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body">
+                    <i class="fa fa-book" style="color: rgba(204, 168, 118); font-size: 40px"></i>
+                    <h3 class="card-title" style="color: white; font-family: Times New Roman"><strong>Insurance Law</strong></h3>
+                    <p class="card-text text-light">Insurance policies sold to corporate policyholders protect against a wide variety of risks.</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="card-group">
+
+            <div class="card col-md-4 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body">
+                    <i class="fa fa-bullseye" style="color: rgba(204, 168, 118); font-size: 40px"></i>
+                    <h3 class="card-title" style="color: white; font-family: Times New Roman"><strong>Sports Law</strong></h3>
+                    <p class="card-text text-light">Sports is a multibillion-dollar global industry enjoying unprecedented growth.</p>
+                </div>
+            </div>
+
+            <div class="card col-md-4 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body">
+                    <img src="images/fa-presentation.png" width="40px">
+                    <h3 class="card-title" style="color: white; font-family: Times New Roman"><strong>Education Law</strong></h3>
+                    <p class="card-text text-light">Education law deals with public and private institutions at all levels – primary, secondary and higher education.</p>
+                </div>
+            </div>
+
+            <div class="card col-md-4 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body">
+                    <i class="fa fa-id-card" style="color: rgba(204, 168, 118); font-size: 40px"></i>
+                    <h3 class="card-title" style="color: white; font-family: Times New Roman"><strong>Elder Law</strong></h3>
+                    <p class="card-text text-light">An impressive UI kit comprising 200+ layered PSD source files will be a useful addition to every designer’s toolbox.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="The_Law_Firm_You_Can_Trust" class="The_Law_Firm_You_Can_Trust" data-aos="fade-right"><br>
+        <div class="card-group">
+
+            <div class="card col-md-6 bg-transparent  mx-auto" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body">
+                    <h3 class="card-title  container" style="color: white; font-family: Times New Roman"><strong>The Law Firm You Can Trust!</strong></h3>
+                </div>
+            </div>
+
+            <div class="card col-md-4 bg-transparent  mx-auto" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body">
+                    <button type="button" class="btn btn-outline-white">Free Advice</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Site footer -->
+    <footer class="container-fluid site-footer bg-footer mx-auto text-center text-white" style="margin-top: 100px;">
+        <div class="container">
+            <img src="images/logo-white.png">
+            <a href="appointment.html">
+                <p>Free Consultation ></p>
+            </a>
+            <hr>
+        </div>
+        <div class="container">
+            <p class="text-center">Copyright &copy; 2020 All Rights Reserved by LawExpert. | Developed by Amar Garčević</a>
+            </p>
+            <center>
+                <div class="text-center">
+                    <ul class="social-icons">
+                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <a class="social-media-button-2" href="#"><i class="fa fa-envelope"></i></a>
+            </center>
+            </ul>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init();
+    </script>
+
+    <!-- jQuery Plugin -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+
+    <!-- Preloader -->
+    <script type="text/javascript">
+        //<![CDATA[
+        $(window).on('load', function() { // makes sure the whole site is loaded 
+                $('#status').fadeOut(); // will first fade out the loading animation 
+                $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
+                $('body').delay(750).css({
+                    'overflow': 'visible'
+                });
+            })
+            //]]>
+    </script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.0.0.js"></script>
+</body>
+
+</html>

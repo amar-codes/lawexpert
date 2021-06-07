@@ -1,0 +1,242 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | LawExpert</title>
+
+    <!-- BOOTSTRAP -->
+    <link href="css/bootstrap-4.0.0.css" rel="stylesheet" type="text/css">
+
+    <!-- STYLE -->
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- MATERIAL ICONS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- SWEETALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+
+    <!-- CUSTOM STYLE -->
+    <style>
+        body {
+            overflow: hidden;
+        }
+        /* Preloader */
+        
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #fff;
+            /* change if the mask should have another color then white */
+            z-index: 99;
+            /* makes sure it stays on top */
+        }
+        
+        #status {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            /* centers the loading animation horizontally one the screen */
+            top: 50%;
+            /* centers the loading animation vertically one the screen */
+            background-image: url(https://thumbs.gfycat.com/PotableEmbarrassedFrenchbulldog-small.gif);
+            /* path to your loading animation */
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: -100px 0 0 -100px;
+            /* is width and height divided by two */
+        }
+    </style>
+</head>
+
+<body style="padding-top: 70px; font-family: 'Montserrat', sans-serif">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+            <ul class="navbar-nav ml-auto">
+                <center>
+                    <li class="nav-item"> <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a> </li>
+                </center>
+                <center>
+                    <li class="nav-item"> <a class="nav-link" href="about-us.html">About us</a> </li>
+                </center>
+                <center>
+                    <li class="nav-item"> <a class="nav-link" href="services.html">Services</a> </li>
+                </center>
+                <center>
+                    <li class="nav-item"> <a class="nav-link" href="cases.html">Cases</a> </li>
+                </center>
+                <center>
+                    <li class="nav-item"> <a class="nav-link" href="blog.html">Blog</a> </li>
+                </center>
+                <center>
+                    <li class="nav-item active"> <a class="nav-link" href="contact-us.html">Contact</a> </li>
+                </center>
+                <center><a href="appointment.html"><button type="button" class="btn btn-outline-danger">Appointment</button></a></center>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="about-us" id="ABOUT">
+        <h1 class="text-white container" style="font-family: Times New Roman; font-size: 60px;"><em><strong>Contact Us</strong></em></h1>
+    </section>
+
+    <div class="container">
+        <div class="card-deck">
+
+            <div class="card col-md-6" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body">
+                    <h1 class="card-title"><strong>How to Find Us</strong></h1>
+                    <p class="card-text">
+                        If you have any questions, just fill in the contact form, and we will answer you shortly. If you are living nearby, come visit LawExpert at one of our comfortable offices.<br><br>
+
+                        <strong>Headquarters</strong><br> 9863 - 9867 MILL ROAD, CAMBRIDGE, MG09 99HT.<br> Telephone: <a href="telto:#">+1 800 603 6035</a><br> E-mail: <a href="mailto:#">info@lawexpert.com</a><br><br>
+
+                        <strong>Support Centre</strong><br> 9870 ST VINCENT PLACE, GLASGOW, DC 45 FR 45<br> Telephone: <a href="telto:#">+1 800 603 6035</a><br> E-mail: <a href="mailto:#">support@lawexpert.com</a></p>
+                </div>
+            </div>
+
+            <div class="card col-md-6" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body">
+                    <h1 class="card-title"><strong>Get in Touch</strong></h1>
+                    <form>
+
+                        <div class="card-deck">
+                            <input type="text" class="form-control col-md-5 input1" placeholder="Name" id="inputchg1" onclick="myFunction()">&nbsp;&nbsp;&nbsp;
+                            <script>
+                                function myFunction() {
+                                    document.getElementById("inputchg1").style.borderColor = "rgba(204, 168, 118)";
+                                }
+                            </script>
+
+                            <input type="phone" class="form-control col-md-5 input1" placeholder="Phone" id="inputchg2" onclick="myFunction1()">
+                            <script>
+                                function myFunction1() {
+                                    document.getElementById("inputchg2").style.borderColor = "rgba(204, 168, 118)";
+                                }
+                            </script>
+                        </div>
+
+                        <br>
+
+                        <div class="card-deck">
+                            <input type="email" class="form-control col-md-5 input1" placeholder="Email" id="inputchg3" onclick="myFunction2()">&nbsp;&nbsp;&nbsp;
+                            <script>
+                                function myFunction2() {
+                                    document.getElementById("inputchg3").style.borderColor = "rgba(204, 168, 118)";
+                                }
+                            </script>
+                            <select class="form-control col-md-5 input1" id="exampleFormControlSelect1 inputchg4" onclick="myFunction3()">
+              <option>Family Law</option>
+              <option>Business Law</option>
+              <option>Civil Litigation</option>
+              </select>
+                            <script>
+                                function myFunction3() {
+                                    document.getElementById("inputchg4").style.borderColor = "rgba(204, 168, 118)";
+                                }
+                            </script>
+                        </div>
+
+                        <br>
+
+                        <div class="card-deck">
+                            <textarea class="form-control col-md-6 input1" placeholder="Message" id="inputchg5" rows="9" onclick="myFunction4()"></textarea>
+                            <script>
+                                function myFunction4() {
+                                    document.getElementById("inputchg5").style.borderColor = "rgba(204, 168, 118)";
+                                }
+                            </script>
+                        </div><br>
+
+                        <div class="card-deck">
+                            <button type="submit" class="btn btn-outline-danger">Send</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    </section>
+
+    <!-- Site footer -->
+    <footer class="container-fluid site-footer bg-footer mx-auto text-center text-white" style="margin-top: 100px;">
+        <div class="container">
+            <img src="images/logo-white.png">
+            <a href="appointment.html">
+                <p>Free Consultation ></p>
+            </a>
+            <hr>
+        </div>
+        <div class="container">
+            <p class="text-center">Copyright &copy; 2020 All Rights Reserved by LawExpert. | Developed by Amar Garčević</a>
+            </p>
+            <center>
+                <div class="text-center">
+                    <ul class="social-icons">
+                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <a class="social-media-button-2" href="#"><i class="fa fa-envelope"></i></a>
+            </center>
+            </ul>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init();
+    </script>
+
+    <!-- jQuery Plugin -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+
+    <!-- Preloader -->
+    <script type="text/javascript">
+        //<![CDATA[
+        $(window).on('load', function() { // makes sure the whole site is loaded 
+                $('#status').fadeOut(); // will first fade out the loading animation 
+                $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
+                $('body').delay(750).css({
+                    'overflow': 'visible'
+                });
+            })
+            //]]>
+    </script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.0.0.js"></script>
+</body>
+
+</html>

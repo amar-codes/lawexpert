@@ -1,0 +1,382 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LawExpert</title>
+
+    <!-- BOOTSTRAP -->
+    <link href="css/bootstrap-4.0.0.css" rel="stylesheet" type="text/css">
+
+    <!-- STYLE -->
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- MATERIAL ICONS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- SWEETALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+
+    <!-- CUSTOM STYLE -->
+    <style>
+        body {
+            overflow: hidden;
+        }
+        /* Preloader */
+        
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #fff;
+            /* change if the mask should have another color then white */
+            z-index: 99;
+            /* makes sure it stays on top */
+        }
+        
+        #status {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            /* centers the loading animation horizontally one the screen */
+            top: 50%;
+            /* centers the loading animation vertically one the screen */
+            background-image: url(https://thumbs.gfycat.com/PotableEmbarrassedFrenchbulldog-small.gif);
+            /* path to your loading animation */
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: -100px 0 0 -100px;
+            /* is width and height divided by two */
+        }
+    </style>
+</head>
+
+<body style="padding-top: 70px; font-family: 'Montserrat', sans-serif">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+            <ul class="navbar-nav ml-auto">
+                <center>
+                    <li class="nav-item active"> <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a> </li>
+                </center>
+                <center>
+                    <li class="nav-item"> <a class="nav-link" href="about-us.html">About us</a> </li>
+                </center>
+                <center>
+                    <li class="nav-item"> <a class="nav-link" href="services.html">Services</a> </li>
+                </center>
+                <center>
+                    <li class="nav-item"> <a class="nav-link" href="cases.html">Cases</a> </li>
+                </center>
+                <center>
+                    <li class="nav-item"> <a class="nav-link" href="blog.html">Blog</a> </li>
+                </center>
+                <center>
+                    <li class="nav-item"> <a class="nav-link" href="contact-us.html">Contact</a> </li>
+                </center>
+                <center><a href="appointment.html"><button type="button" class="btn btn-outline-danger">Appointment</button></a></center>
+            </ul>
+        </div>
+    </nav>
+
+    <header style="padding-top: 170px;">
+        <center>
+            <h2 class="theme-text2" data-aos="fade-up" data-aos-delay="750"><strong>We Offer</strong></h2>
+        </center>
+        <center>
+            <h1 class="text-white" data-aos="fade-up" data-aos-delay="750"><strong>Affordable and Effective Legal Help</strong></h1>
+        </center>
+        <center>
+            <h4 class="text-white" data-aos="fade-up" data-aos-delay="750">Our expert team of attorneys and consultants will be glad<br> to provide necessary legal assistance.</h4>
+        </center><br>
+        <center><a href="appointment.html"><button type="button" class="btn btn-outline-danger" data-aos="fade-up" data-aos-delay="750">Request a Free Consultation</button></a></center>
+    </header>
+
+    <section id="categories" style="padding-top: 100px;">
+        <div class="container">
+            <div class="card-deck">
+
+                <div class="card col-md-4" style="padding-top: 15px" data-aos="fade-right">
+                    <center><span class="material-icons" style="color: rgba(204, 168, 118); font-size: 80px;"> business_center </span></center>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <center>Business Law</center>
+                        </h5>
+                        <hr class="bg-theme" width="20%">
+                        <p class="card-text">
+                            <center>Business law deals with the creation of new businesses and the issues that arise as existing.</center>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card col-md-4 theme-hover" style="padding-top: 15px" data-aos="fade-right">
+                    <center><span class="material-icons" style="color: rgba(204, 168, 118); font-size: 80px;"> people_outline </span></center>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <center>Family Law</center>
+                        </h5>
+                        <hr class="bg-theme" width="20%">
+                        <p class="card-text">
+                            <center>Family law attorneys help their clients file for separation or divorce, alimony or child custody.</center>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card col-md-4" style="padding-top: 15px" data-aos="fade-right">
+                    <center><span class="material-icons" style="color: rgba(204, 168, 118); font-size: 80px;"> business_center </span></center>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <center>Business Law</center>
+                        </h5>
+                        <hr class="bg-theme" width="20%">
+                        <p class="card-text">
+                            <center>Business law deals with the creation of new businesses and the issues that arise as existing.</center>
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <section id="ABOUT" class="about" style="margin-top: 180px; padding-top: 43px;" data-aos="fade-right">
+
+        <div class="container col-8 text-white">
+            <h2><strong>About Us</strong></h2>
+            <p class="text-white" style="padding-top: 30px;">When you place your case in the hands of our lawyers and paralegals, you are placing your case in the hands of professionals who are committed to achieving the best possible outcome.</p>
+            <center>
+                <p>Ryan Emberson, <small><em>CEO at LawExpert</em></small></p>
+                <img src="images/ryan-ceo.jpg" width="350">
+            </center>
+        </div>
+
+    </section>
+
+    <section id="experts" class="experts" style="margin-top: 100px;" data-aos="fade-right">
+        <div class="container">
+            <div class="card-deck">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <div class="hovereffect">
+                        <img class="img-responsive" src="images/amanda-smith.jpg" alt="">
+                        <div class="overlay"><br><br><br><br>
+                            <h2>AMANDA SMITH <br><small><em>Business Expert</em></small></h2>
+                            <p>
+                                <a href="#"><span class="material-icons">phone</span>+1 (409) 987–5874</a><br>
+                                <a href="#"><i class="fa fa-envelope"></i>&nbsp;as@lawexpert.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <div class="hovereffect">
+                        <img class="img-responsive" src="images/john-doe.jpg" alt="">
+                        <div class="overlay"><br><br><br><br><br>
+                            <h2>John Doe <br><small><em>PR manager</em></small></h2>
+                            <p>
+                                <a href="#"><span class="material-icons">phone</span>+1 (409) 250–5874</a><br>
+                                <a href="#"><i class="fa fa-envelope"></i>&nbsp;jd@lawexpert.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <div class="hovereffect">
+                        <img class="img-responsive" src="images/vanessa-ives.png" alt="">
+                        <div class="overlay"><br><br><br><br>
+                            <h2>VANESSA IVES <br><small><em>Marketing Expert</em></small></h2>
+                            <p>
+                                <a href="#"><span class="material-icons">phone</span>+1 (409) 233–5874</a><br>
+                                <a href="#"><i class="fa fa-envelope"></i>&nbsp;vi@lawexpert.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card col-md-4 text-center" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                    <div class="card-body">
+                        <h1 class="card-title"><strong>Experts</strong></h5>
+                            <p class="card-text"><em>in Their Fields</em></p>
+                            <p class="card-text">If you or your business is facing a legal challenge, contact us today to arrange a free initial consultation with an attorney.</p>
+                            <a href="#" class="nav-link">Read more ></a>
+                    </div>
+                </div>
+
+            </div>
+
+    </section>
+
+
+    <section id="about-success" class="about-success" style="margin-top: 130px;" data-aos="fade-right">
+        <div class="card-group">
+
+            <div class="card col-md-4 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body text-center">
+                    <center><span class="material-icons" style="color: rgba(204, 168, 118); font-size: 80px;">groups</span></center>
+                    <h1 class="card-title text-white" style="font-size: 50px;"><strong>1450</strong></h1>
+                    <p class="card-text text-light">Happy Clients</p>
+                </div>
+            </div>
+
+
+            <div class="card col-md-4 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body text-center">
+                    <center><span class="fa fa-balance-scale" style="color: rgba(204, 168, 118); font-size: 80px;"></span></center>
+                    <h1 class="card-title text-white" style="font-size: 50px;"><strong>23</strong></h1>
+                    <p class="card-text text-light">Years of Experience</p>
+                </div>
+            </div>
+
+
+            <div class="card col-md-4 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body text-center">
+                    <center><span class="fa fa-handshake-o" style="color: rgba(204, 168, 118); font-size: 80px;"></span></center>
+                    <h1 class="card-title text-white" style="font-size: 50px;"><strong>98%</strong></h1>
+                    <p class="card-text text-light">Successful Cases</p>
+                </div>
+            </div>
+
+
+            <div class="card col-md-4 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                <div class="card-body text-center">
+                    <center><span class="fa fa-file-o" style="color: rgba(204, 168, 118); font-size: 80px;"></span></center>
+                    <h1 class="card-title text-white" style="font-size: 50px;"><strong>7500</strong></h1>
+                    <p class="card-text text-light">Personal Injury Cases</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="Free_Consultation" class="consultation" style="margin-top: 100px;" data-aos="fade-right">
+        <div class="jumbotron">
+
+            <h1 class="display-4">Free Consultation</h1>
+
+            <div class="card-group">
+
+                <div class="card col-md-7 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                    <div class="card-body text-center">
+                        <form>
+
+                            <div class="card-deck">
+                                <input type="text" class="form-control col-md-3" placeholder="Name">&nbsp;&nbsp;&nbsp;
+                                <input type="phone" class="form-control col-md-3" placeholder="Phone">
+                            </div>
+
+                            <br>
+
+                            <div class="card-deck">
+                                <input type="email" class="form-control col-md-3" placeholder="Email">&nbsp;&nbsp;&nbsp;
+                                <select class="form-control col-md-3" id="exampleFormControlSelect1">
+              <option>Family Law</option>
+              <option>Business Law</option>
+              <option>Civil Litigation</option>
+              </select>
+                            </div>
+
+                            <br>
+
+                            <div class="card-deck">
+                                <textarea class="form-control col-md-6" placeholder="Message" rows="9"></textarea>
+                            </div><br>
+
+                            <div class="card-deck">
+                                <button type="submit" class="btn btn-outline-danger">Request a Free Consultation</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card col-md-4 bg-transparent" style="border-top: 0px; border-bottom: 0px; border-right: 0px; border-left: 0px;">
+                    <div class="card-body text-center">
+                        <img src="images/consultation.png" width="400">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Site footer -->
+    <footer class="container-fluid site-footer bg-footer mx-auto text-center text-white" style="margin-top: 100px;">
+        <div class="container">
+            <img src="images/logo-white.png">
+            <a href="appointment.html">
+                <p>Free Consultation ></p>
+            </a>
+            <hr>
+        </div>
+        <div class="container">
+            <p class="text-center">Copyright &copy; 2020 All Rights Reserved by LawExpert. | Developed by Amar Garčević</a>
+            </p>
+            <center>
+                <div class="text-center">
+                    <ul class="social-icons">
+                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <a class="social-media-button-2" href="#"><i class="fa fa-envelope"></i></a>
+            </center>
+            </ul>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init();
+    </script>
+
+    <!-- jQuery Plugin -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+
+    <!-- Preloader -->
+    <script type="text/javascript">
+        //<![CDATA[
+        $(window).on('load', function() { // makes sure the whole site is loaded 
+                $('#status').fadeOut(); // will first fade out the loading animation 
+                $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
+                $('body').delay(750).css({
+                    'overflow': 'visible'
+                });
+            })
+            //]]>
+    </script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.0.0.js"></script>
+</body>
+
+</html>
